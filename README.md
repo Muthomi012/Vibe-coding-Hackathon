@@ -168,3 +168,265 @@ FarmLink differentiates itself through:
 - **Community-driven approach** that builds trust through transparency
 
 This platform addresses a fundamental market inefficiency while empowering some of the world's most vulnerable economic participants with the tools they need to thrive.
+
+
+
+# MarketLink AI - User Flow Definition (Step 2.1)
+
+
+---
+
+## 🎯 User Flow Overview
+
+This user flow maps the complete journey of a farmer using MarketLink AI, from first opening the app to completing a sale. The flow is designed for simplicity and speed, recognizing that farmers need quick, actionable information.
+
+---
+
+## 📱 Step-by-Step User Flow
+
+### 1. Open the App
+**Action:** Farmer launches MarketLink AI on their mobile device  
+**Context:** First-time user or returning user  
+**Goal:** Access the platform quickly and intuitively  
+
+**User Experience:**
+- Clean, simple welcome screen
+- Clear value proposition visible immediately
+- Fast loading time, even on slow connections
+
+---
+
+### 2. Sign Up or Login
+**Action:** Authentication using phone number or name  
+**Context:** Simple, password-free authentication  
+**Goal:** Quick access without complex registration barriers  
+
+**User Experience:**
+- Phone number input (primary method)
+- Optional name field for personalization
+- SMS verification code for security
+- No complex passwords or email requirements
+- "Remember me" option for returning users
+
+**Technical Notes:**
+- Supabase Auth for phone number verification
+- Store minimal user data for privacy
+- Offline capability for returning users
+
+---
+
+### 3. Select Location
+**Action:** Choose location via dropdown or voice input  
+**Context:** Determine farmer's market area for relevant data  
+**Goal:** Provide location-specific prices and buyers  
+
+**User Experience:**
+- Dropdown menu with common counties/regions
+- Voice input option: "Speak your location"
+- GPS auto-detection (with permission)
+- Option to change location later
+- Remembers previous location selection
+
+**Technical Notes:**
+- Pre-populated location database
+- Voice-to-text integration (Web Speech API)
+- Geolocation API for automatic detection
+
+---
+
+### 4. Input Produce
+**Action:** Enter crop details (e.g., "Tomatoes – 100kg")  
+**Context:** Farmer has harvested and wants to sell  
+**Goal:** Capture essential produce information quickly  
+
+**Input Methods:**
+- **Text Entry:** Type crop name and quantity
+- **Voice Input:** "I have 100 kilograms of tomatoes"
+- **Photo Upload:** Take picture of produce for AI recognition
+- **Quick Select:** Common crops with quantity picker
+
+**User Experience:**
+- Auto-complete for crop names
+- Unit conversion helpers (bags, baskets, kg)
+- Optional quality grade selection
+- Save favorite crop combinations
+
+**Technical Notes:**
+- Crop database with search functionality
+- AI image recognition for photo uploads
+- Voice processing with crop-specific vocabulary
+
+---
+
+### 5. View Market Prices
+**Action:** See current prices in nearby towns or markets  
+**Context:** Compare options to make informed selling decisions  
+**Goal:** Understand price variations across locations  
+
+**Information Displayed:**
+- Current price per unit for farmer's crop
+- Market names and distances
+- Price trends (up/down arrows)
+- Last updated timestamp
+- Recommended markets highlighted
+
+**User Experience:**
+- Clear price comparison table
+- Visual indicators for best prices
+- Distance and travel time estimates
+- Historical price trends (simple graphs)
+
+**Technical Notes:**
+- Real-time price data integration
+- Market distance calculations
+- Price trend analysis algorithms
+
+---
+
+### 6. Get Buyer Matches
+**Action:** Receive buyer contacts with phone numbers or directions  
+**Context:** Find verified buyers for direct sales  
+**Goal:** Connect with buyers who want farmer's specific produce  
+
+**Information Provided:**
+- Buyer name and basic profile
+- Contact information (phone number)
+- Location and directions
+- Purchase history/ratings
+- Quantity requirements and preferences
+
+**User Experience:**
+- List of matched buyers sorted by relevance
+- "Call Now" and "Send Message" buttons
+- Buyer verification badges
+- Distance from farmer's location
+
+**Technical Notes:**
+- AI-powered matching algorithm
+- Buyer database with verification system
+- Integration with maps for directions
+
+---
+
+### 7. Set Alerts
+**Action:** Configure SMS or WhatsApp notifications for price changes  
+**Context:** Stay informed about market opportunities  
+**Goal:** Receive timely notifications without constant app checking  
+
+**Alert Options:**
+- Daily price summaries
+- Price spike notifications
+- New buyer requests
+- Market trend alerts
+- Seasonal demand predictions
+
+**User Experience:**
+- Simple toggle switches for alert types
+- Choose notification method (SMS/WhatsApp)
+- Set preferred notification times
+- Customize alert frequency
+
+**Technical Notes:**
+- Twilio integration for SMS/WhatsApp
+- Scheduled notification system
+- User preference management
+
+---
+
+### 8. Connect to Buyer
+**Action:** Contact buyer via call or message  
+**Context:** Initiate sale negotiation  
+**Goal:** Establish direct communication for transaction  
+
+**Connection Methods:**
+- **Direct Call:** Tap to call buyer immediately
+- **SMS Message:** Send pre-formatted inquiry message
+- **WhatsApp:** Contact via WhatsApp if available
+- **In-App Messaging:** Secure platform communication
+
+**User Experience:**
+- One-tap calling functionality
+- Message templates for common inquiries
+- Call history and message tracking
+- Feedback system for buyer interactions
+
+**Technical Notes:**
+- Phone integration for calling
+- Message template system
+- Communication history logging
+
+---
+
+### 9. Sell & Repeat
+**Action:** Complete transaction and return for future sales  
+**Context:** Successful sale completion  
+**Goal:** Build ongoing relationship with platform  
+
+**Post-Sale Actions:**
+- Rate the buyer experience
+- Log transaction details (optional)
+- Set up future alerts for same crop
+- Share success story (optional)
+
+**User Experience:**
+- Simple transaction completion confirmation
+- Buyer rating system
+- Quick return to main flow for new listings
+- Success celebration and encouragement
+
+**Technical Notes:**
+- Transaction logging for analytics
+- User feedback collection
+- Repeat user optimization
+
+---
+
+## 🔄 User Flow Variations
+
+### New User Flow
+1. Open App → 2. Sign Up → 3. Location Setup → 4. Input Produce → 5-9. Standard Flow
+
+### Returning User Flow
+1. Open App → Quick Login → 4. Input Produce → 5-9. Standard Flow
+
+### Alert-Triggered Flow
+1. Receive Alert → Open App → 5. View Updated Prices → 6-9. Standard Flow
+
+---
+
+## ⏱️ Timing Expectations
+
+| Step | Expected Time | Critical Success Factor |
+|------|---------------|------------------------|
+| 1-2. Open & Login | 30 seconds | Fast loading, simple auth |
+| 3. Location | 15 seconds | Remember previous location |
+| 4. Input Produce | 30 seconds | Auto-complete, voice input |
+| 5. View Prices | 10 seconds | Real-time data, clear display |
+| 6. Buyer Matches | 15 seconds | Relevant, verified matches |
+| 7. Set Alerts | 30 seconds | Simple toggles, clear options |
+| 8. Connect | 5 seconds | One-tap calling |
+| **Total Time** | **2-3 minutes** | **Complete price-to-contact flow** |
+
+---
+
+## 🎯 Flow Optimization Notes
+
+### Critical Success Points
+- **Speed:** Entire flow should complete in under 3 minutes
+- **Simplicity:** No step should require explanation or help
+- **Reliability:** Each step must work on slow connections
+- **Accessibility:** Voice and photo options for low-literacy users
+
+### Potential Friction Points
+- **Location Selection:** Ensure comprehensive location database
+- **Produce Input:** Voice recognition accuracy for local accents
+- **Price Loading:** Handle slow data connections gracefully
+- **Buyer Contact:** Verify phone numbers are current and working
+
+### Flow Enhancement Opportunities
+- **Smart Defaults:** Remember user preferences and pre-fill forms
+- **Predictive Features:** Suggest likely crops based on season/location
+- **Social Proof:** Show other farmers' success stories
+- **Gamification:** Celebrate successful transactions and platform milestones
+
+This user flow provides a clear roadmap for development and ensures every screen serves a specific purpose in helping farmers sell their produce more effectively.
