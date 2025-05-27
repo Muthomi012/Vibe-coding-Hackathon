@@ -2,6 +2,7 @@
 
 **Hackathon Track:** Agritech  
 **Project Name:** FarmLink: The Market Match Platform for Small-Scale Farmers  
+   **Project link:**       : https://profound-sfogliatella-d3be6e.netlify.app
 **Date:** May 26, 2025
 
 ---
